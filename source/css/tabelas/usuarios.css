@@ -1,0 +1,52 @@
+body {
+    background-color: rgb(238, 238, 238);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo {
+    background-color: rgb(226, 226, 226);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+    padding: 40px;
+}
+
+
+.header-principal {
+    margin-top: 10px;
+}
+
+.header-principal ul{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px;
+}
+
+.header-principal li{
+    text-decoration: none;
+    list-style: none;
+    margin-right: 15px;
+}
+
+.header-principal a{
+    color: black;
+    font-size: 20px;
+}
+
+#tabela-usuarios th{
+    border-bottom: 1px black solid;
+    padding: 10px;
+}
+#tabela-usuarios td{
+    padding: 15px;
+    margin: 10px;
+    border-bottom: 1px black solid;
+
+}
