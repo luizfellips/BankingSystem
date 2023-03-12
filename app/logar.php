@@ -19,7 +19,7 @@
                 echo "<p style=color:red> $erro </p>";
             }
             ?>
-            <p>Seu usuário</p>
+            <p>Seu usuário ou e-mail</p>
             <input type="text" name="Usuario" required>
             <p>Sua senha</p>
             <input type="password" name="Senha" required>
@@ -46,7 +46,7 @@ if (isset($_POST["Usuario"]) && isset($_POST["Senha"])) {
             exit;
             
         } else {
-            echo "erro";
+            echo "Um erro ocorreu na autenticação!";
         }
 
 

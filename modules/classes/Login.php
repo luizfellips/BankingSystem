@@ -21,9 +21,10 @@ class Login
 
     public function Autenticar()
     {
-        $query = "SELECT * FROM usuarios where usuario = :usuario and senha = :senha;";
+        $query = "SELECT * FROM usuarios where usuario = :usuario or email = :email and senha = :senha;";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindValue('usuario', $this->Usuario);
+        $stmt->bindValue('email', $this->Usuario);
         $stmt->bindValue('senha', $this->Senha);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,9 +36,10 @@ class Login
     }
 
     public function BuscarIdUsuario(){
-        $query = "SELECT usuario_id FROM usuarios where usuario = :usuario and senha = :senha;";
+        $query = "SELECT usuario_id FROM usuarios where usuario = :usuario or email = :email and senha = :senha;";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindValue('usuario', $this->Usuario);
+        $stmt->bindValue('email', $this->Usuario);
         $stmt->bindValue('senha', $this->Senha);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);

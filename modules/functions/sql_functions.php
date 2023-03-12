@@ -9,7 +9,7 @@ function BuscarPorID(PDO $Conexao, $IDSessao){
 }
 
 function BuscarIDPorUser(PDO $Conexao, $Usuario){
-    $query = "SELECT usuario_id FROM usuarios where usuario = ?";
+    $query = "SELECT usuario_id FROM usuarios where email = ?";
     $stmt = $Conexao->prepare($query);
     $stmt->bindParam(1, $Usuario,PDO::PARAM_STR);
     $stmt->execute();

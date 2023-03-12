@@ -63,7 +63,7 @@ if(isset($_SESSION["UsuarioID"])){
         print_r($err);
     }
 }
-    
+session_abort();
 ?>
 
 </html>

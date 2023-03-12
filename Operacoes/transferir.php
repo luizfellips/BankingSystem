@@ -42,7 +42,7 @@ if (isset($_SESSION["UsuarioID"])) {
         <form action="transferir.php" method="post">
             <p>Número da sua conta</p>
             <input type="text" name="NumeroConta_Originario" required>
-            <p>Nome do usuário a transferir: </p>
+            <p>e-mail do usuário a transferir: </p>
             <input type="text" name="Usuario_A_Transferir" required>
             <p>Número da conta a transferir: </p>
             <input type="text" name="NumeroConta_Transferir" required>
@@ -82,13 +82,18 @@ if (
 
 
         $UsuarioATransferirID = BuscarIDPorUser($Conexao, $UsuarioATransferir);
-
-
-        if ($UsuarioAtual->Transferir($NumeroContaOriginario, $UsuarioATransferirID, $NumeroContaATransferir, $Quantia)) {
-            echo "Quantia transferida com sucesso!";
-        } else {
-            echo "Um erro ocorreu.";
+        if($UsuarioAtual->UsuarioID == $UsuarioATransferirID){
+            echo "Impossível completar a operação, não é permitido transferir para si mesmo!";
         }
+        else{
+            if ($UsuarioAtual->Transferir($NumeroContaOriginario, $UsuarioATransferirID, $NumeroContaATransferir, $Quantia)) {
+                echo "Quantia transferida com sucesso!";
+            } else {
+                echo "Um erro ocorreu.";
+            }
+        }
+
+        
 
     } catch (Exception $err) {
         echo "Mais detalhes do erro: <br/>";
