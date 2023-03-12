@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['UsuarioID'])){
+    header("Location: /Documents/BankingSystem/index.php");
+}
+session_abort();
+?>
 
 <?php 
 require_once("../modules/dbauth/Conexao.php");
